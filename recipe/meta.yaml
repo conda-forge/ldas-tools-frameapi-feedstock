@@ -3,18 +3,19 @@
 {% set sha256 = "5caac8adc780647da0ce1ed3b6b5f81ad2a20f38baaf31c667172ef0038ac84d" %}
 
 # upstream dependency versions
-{% set ldas_tools_framecpp_version = "2.6.4" %}
-{% set ldas_tools_filters_version = "2.6.3" %}
-{% set ldas_tools_ldasgen_version = "2.6.3" %}
+{% set ldas_tools_framecpp_version = "2.7.0" %}
+{% set ldas_tools_filters_version = "2.6.4" %}
+{% set ldas_tools_ldasgen_version = "2.7.0" %}
 
 package:
-  name: {{ name|lower }}
-  version: {{ version }}
+  name: "{{ name|lower }}"
+  version: "{{ version }}"
 
 source:
-  fn: {{ name }}-{{ version }}.tar.gz
-  url: http://software.ligo.org/lscsoft/source/{{ name }}-{{ version }}.tar.gz
-  sha256: {{ sha256 }}
+  url: "http://software.ligo.org/lscsoft/source/{{ name }}-{{ version }}.tar.gz"
+  sha256: "{{ sha256 }}"
+  run_exports:
+    - {{ pin_subpackage("ldas-tools-frameapi", max_pin="x.x") }}
 
 build:
   number: 0
@@ -24,8 +25,7 @@ requirements:
   build:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
-    - pkg-config  # [not win]
-    - make  # [not win]
+    - pkg-config  # [unix]
   host:
     - ldas-tools-framecpp >={{ ldas_tools_framecpp_version }}
     - ldas-tools-filters >={{ ldas_tools_filters_version }}
@@ -38,20 +38,21 @@ requirements:
     - ldas-tools-ldasgen >={{ ldas_tools_ldasgen_version }}
 
 test:
+  requires:
+    - pkg-config  # [unix]
   commands:
-    - test -d ${PREFIX}/include/frameAPI  # [not win]
-    - test -f ${PREFIX}/lib/libldasframe${SHLIB_EXT}  # [not win]
-    - conda inspect linkages -p ${PREFIX} ${PKG_NAME}  # [not win]
-    - conda inspect objects -p ${PREFIX} ${PKG_NAME}  # [osx]
+    - test -d ${PREFIX}/include/frameAPI  # [unix]
+    - test -f ${PREFIX}/lib/libldasframe${SHLIB_EXT}  # [unix]
+    - pkg-config --print-errors --modversion ldastools-ldasframe  # [unix]
 
 about:
-  home: https://wiki.ligo.org/Computing/DASWG/LDASTools
-  dev_url: https://git.ligo.org/ldastools/LDAS_Tools
-  license: GPLv2
-  license_family: GPL
-  license_file: COPYING
-  summary: LDAS tools frameAPI library
-  description: This provides the runtime libraries for the frameAPI library.
+  home: "https://wiki.ligo.org/Computing/LDASTools"
+  dev_url: "https://git.ligo.org/ldastools/LDAS_Tools"
+  license: "GPL-2.0-or-later"
+  license_family: "GPL"
+  license_file: "COPYING"
+  summary: "LDAS tools frameAPI library"
+  description: "This provides the runtime libraries for the frameAPI library."
 
 extra:
   recipe-maintainers:
