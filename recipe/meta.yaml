@@ -3,6 +3,8 @@
 {% set sha256 = "5caac8adc780647da0ce1ed3b6b5f81ad2a20f38baaf31c667172ef0038ac84d" %}
 
 # upstream dependency versions
+{% set ldas_tools_cmake_version = "1.0.8" %}
+{% set ldas_tools_al_version = "2.6.3" %}
 {% set ldas_tools_framecpp_version = "2.7.0" %}
 {% set ldas_tools_filters_version = "2.6.4" %}
 {% set ldas_tools_ldasgen_version = "2.7.0" %}
@@ -27,12 +29,15 @@ requirements:
     - {{ compiler('cxx') }}
     - pkg-config  # [unix]
   host:
-    - ldas-tools-framecpp >={{ ldas_tools_framecpp_version }}
+    - ldas-tools-al >={{ ldas_tools_al_version }}
+    - ldas-tools-cmake >={{ ldas_tools_cmake_version }}
     - ldas-tools-filters >={{ ldas_tools_filters_version }}
+    - ldas-tools-framecpp >={{ ldas_tools_framecpp_version }}
     - ldas-tools-ldasgen >={{ ldas_tools_ldasgen_version }}
     - openssl
     - zlib
   run:
+    - ldas-tools-al >={{ ldas_tools_al_version }}
     - ldas-tools-framecpp >={{ ldas_tools_framecpp_version }}
     - ldas-tools-filters >={{ ldas_tools_filters_version }}
     - ldas-tools-ldasgen >={{ ldas_tools_ldasgen_version }}
