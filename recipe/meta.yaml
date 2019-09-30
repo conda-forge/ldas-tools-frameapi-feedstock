@@ -29,11 +29,11 @@ requirements:
     - {{ compiler('cxx') }}
     - pkg-config  # [unix]
   host:
-    - ldas-tools-al >={{ ldas_tools_al_version }}
+    - ldas-tools-al {{ ldas_tools_al_version }}
     - ldas-tools-cmake >={{ ldas_tools_cmake_version }}
-    - ldas-tools-filters >={{ ldas_tools_filters_version }}
-    - ldas-tools-framecpp >={{ ldas_tools_framecpp_version }}
-    - ldas-tools-ldasgen >={{ ldas_tools_ldasgen_version }}
+    - ldas-tools-filters {{ ldas_tools_filters_version }}
+    - ldas-tools-framecpp {{ ldas_tools_framecpp_version }}
+    - ldas-tools-ldasgen {{ ldas_tools_ldasgen_version }}
     - openssl
     - zlib
   run:
