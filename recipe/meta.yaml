@@ -27,6 +27,7 @@ requirements:
   build:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
+    - cmake >=3.6
     - pkg-config  # [unix]
   host:
     - ldas-tools-al {{ ldas_tools_al_version }}
