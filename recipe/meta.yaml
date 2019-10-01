@@ -16,12 +16,12 @@ package:
 source:
   url: "http://software.ligo.org/lscsoft/source/{{ name }}-{{ version }}.tar.gz"
   sha256: "{{ sha256 }}"
-  run_exports:
-    - {{ pin_subpackage("ldas-tools-frameapi", max_pin="x.x") }}
 
 build:
   number: 0
   skip: true  # [win]
+  run_exports:
+    - {{ pin_subpackage("ldas-tools-frameapi", max_pin="x.x") }}
 
 requirements:
   build:
