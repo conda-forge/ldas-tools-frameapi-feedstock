@@ -3,11 +3,11 @@
 {% set sha256 = "14cdb1064255d794d3c8327cffbddf1f6e0f11fb808ed90885ef8f9df27a49f1" %}
 
 # upstream dependency versions
-{% set ldas_tools_cmake_version = "1.0.8" %}
+{% set ldas_tools_cmake_version = "1.2.2" %}
 {% set ldas_tools_al_version = "2.6.3" %}
-{% set ldas_tools_framecpp_version = "2.7.0" %}
-{% set ldas_tools_filters_version = "2.6.4" %}
-{% set ldas_tools_ldasgen_version = "2.7.0" %}
+{% set ldas_tools_framecpp_version = "2.7.1" %}
+{% set ldas_tools_filters_version = "2.6.5" %}
+{% set ldas_tools_ldasgen_version = "2.7.1" %}
 
 package:
   name: {{ name|lower }}
