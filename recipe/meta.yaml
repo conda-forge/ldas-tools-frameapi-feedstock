@@ -1,21 +1,21 @@
 {% set name = "ldas-tools-frameAPI" %}
-{% set version = "2.6.4" %}
-{% set sha256 = "5caac8adc780647da0ce1ed3b6b5f81ad2a20f38baaf31c667172ef0038ac84d" %}
+{% set version = "2.6.5" %}
+{% set sha256 = "14cdb1064255d794d3c8327cffbddf1f6e0f11fb808ed90885ef8f9df27a49f1" %}
 
 # upstream dependency versions
-{% set ldas_tools_cmake_version = "1.0.8" %}
+{% set ldas_tools_cmake_version = "1.2.2" %}
 {% set ldas_tools_al_version = "2.6.3" %}
-{% set ldas_tools_framecpp_version = "2.7.0" %}
-{% set ldas_tools_filters_version = "2.6.4" %}
-{% set ldas_tools_ldasgen_version = "2.7.0" %}
+{% set ldas_tools_framecpp_version = "2.7.1" %}
+{% set ldas_tools_filters_version = "2.6.5" %}
+{% set ldas_tools_ldasgen_version = "2.7.1" %}
 
 package:
-  name: "{{ name|lower }}"
-  version: "{{ version }}"
+  name: {{ name|lower }}
+  version: {{ version }}
 
 source:
-  url: "http://software.ligo.org/lscsoft/source/{{ name }}-{{ version }}.tar.gz"
-  sha256: "{{ sha256 }}"
+  url: http://software.ligo.org/lscsoft/source/{{ name }}-{{ version }}.tar.gz
+  sha256: {{ sha256 }}
 
 build:
   number: 0
@@ -30,13 +30,11 @@ requirements:
     - cmake >=3.6
     - pkg-config  # [unix]
   host:
-    - ldas-tools-al {{ ldas_tools_al_version }}
+    - ldas-tools-al >={{ ldas_tools_al_version }}
     - ldas-tools-cmake >={{ ldas_tools_cmake_version }}
-    - ldas-tools-filters {{ ldas_tools_filters_version }}
-    - ldas-tools-framecpp {{ ldas_tools_framecpp_version }}
-    - ldas-tools-ldasgen {{ ldas_tools_ldasgen_version }}
-    - openssl
-    - zlib
+    - ldas-tools-filters >={{ ldas_tools_filters_version }}
+    - ldas-tools-framecpp >={{ ldas_tools_framecpp_version }}
+    - ldas-tools-ldasgen >={{ ldas_tools_ldasgen_version }}
   run:
     - ldas-tools-al >={{ ldas_tools_al_version }}
     - ldas-tools-framecpp >={{ ldas_tools_framecpp_version }}
@@ -52,13 +50,13 @@ test:
     - pkg-config --print-errors --modversion ldastools-ldasframe  # [unix]
 
 about:
-  home: "https://wiki.ligo.org/Computing/LDASTools"
-  dev_url: "https://git.ligo.org/ldastools/LDAS_Tools"
-  license: "GPL-2.0-or-later"
-  license_family: "GPL"
-  license_file: "COPYING"
-  summary: "LDAS tools frameAPI library"
-  description: "This provides the runtime libraries for the frameAPI library."
+  home: https://wiki.ligo.org/Computing/LDASTools
+  dev_url: https://git.ligo.org/ldastools/LDAS_Tools
+  license: GPL-2.0-or-later
+  license_family: GPL
+  license_file: COPYING
+  summary: LDAS tools frameAPI library
+  description: This provides the runtime libraries for the frameAPI library.
 
 extra:
   recipe-maintainers:
