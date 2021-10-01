@@ -1,6 +1,6 @@
 {% set name = "ldas-tools-frameAPI" %}
-{% set version = "2.6.5" %}
-{% set sha256 = "14cdb1064255d794d3c8327cffbddf1f6e0f11fb808ed90885ef8f9df27a49f1" %}
+{% set version = "2.6.6" %}
+{% set sha256 = "eb1761c79e1cd424f46f8816ed048dedaa8efa691367776fe0860b7a618bc791" %}
 
 # upstream dependency versions
 {% set ldas_tools_cmake_version = "1.2.2" %}
