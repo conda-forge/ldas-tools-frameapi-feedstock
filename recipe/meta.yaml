@@ -1,13 +1,12 @@
 {% set name = "ldas-tools-frameAPI" %}
-{% set version = "2.6.5" %}
-{% set sha256 = "14cdb1064255d794d3c8327cffbddf1f6e0f11fb808ed90885ef8f9df27a49f1" %}
+{% set version = "2.6.6" %}
 
 # upstream dependency versions
-{% set ldas_tools_cmake_version = "1.2.2" %}
-{% set ldas_tools_al_version = "2.6.3" %}
-{% set ldas_tools_framecpp_version = "2.7.1" %}
-{% set ldas_tools_filters_version = "2.6.5" %}
-{% set ldas_tools_ldasgen_version = "2.7.1" %}
+{% set ldas_tools_cmake_version = "1.2.3" %}
+{% set ldas_tools_al_version = "2.6.7" %}
+{% set ldas_tools_framecpp_version = "2.8.1" %}
+{% set ldas_tools_filters_version = "2.6.6" %}
+{% set ldas_tools_ldasgen_version = "2.7.3" %}
 
 package:
   name: {{ name|lower }}
@@ -15,7 +14,7 @@ package:
 
 source:
   url: http://software.ligo.org/lscsoft/source/{{ name }}-{{ version }}.tar.gz
-  sha256: {{ sha256 }}
+  sha256: eb1761c79e1cd424f46f8816ed048dedaa8efa691367776fe0860b7a618bc791
 
 build:
   number: 0
@@ -47,7 +46,7 @@ test:
   commands:
     - test -d ${PREFIX}/include/frameAPI  # [unix]
     - test -f ${PREFIX}/lib/libldasframe${SHLIB_EXT}  # [unix]
-    - pkg-config --print-errors --modversion ldastools-ldasframe  # [unix]
+    - pkg-config --print-errors --exact-version {{ version }} ldastools-ldasframe  # [unix]
 
 about:
   home: https://wiki.ligo.org/Computing/LDASTools
