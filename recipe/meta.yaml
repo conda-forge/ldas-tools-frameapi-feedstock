@@ -30,12 +30,14 @@ requirements:
     - make  # [unix]
     - pkg-config  # [unix]
   host:
+    - boost-cpp
     - ldas-tools-al >={{ ldas_tools_al_version }}
     - ldas-tools-cmake >={{ ldas_tools_cmake_version }}
     - ldas-tools-filters >={{ ldas_tools_filters_version }}
     - ldas-tools-framecpp >={{ ldas_tools_framecpp_version }}
     - ldas-tools-ldasgen >={{ ldas_tools_ldasgen_version }}
   run:
+    - boost-cpp
     - ldas-tools-al >={{ ldas_tools_al_version }}
     - ldas-tools-framecpp >={{ ldas_tools_framecpp_version }}
     - ldas-tools-filters >={{ ldas_tools_filters_version }}
