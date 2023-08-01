@@ -1,11 +1,11 @@
-About ldas-tools-frameapi
-=========================
+About ldas-tools-frameapi-feedstock
+===================================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/ldas-tools-frameapi-feedstock/blob/main/LICENSE.txt)
 
 Home: https://wiki.ligo.org/Computing/LDASTools
 
 Package license: GPL-2.0-or-later
-
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/ldas-tools-frameapi-feedstock/blob/main/LICENSE.txt)
 
 Summary: LDAS tools frameAPI library
 
