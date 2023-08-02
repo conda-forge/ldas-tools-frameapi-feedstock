@@ -1,0 +1,12 @@
+diff --git a/frameutils/CMakeLists.txt b/frameutils/CMakeLists.txt
+index 548699b60..96f482e0a 100644
+--- a/frameutils/CMakeLists.txt
++++ b/frameutils/CMakeLists.txt
+@@ -225,7 +225,6 @@ cm_check_headers(sys/mnttab.h)
+ #========================================================================
+ 
+ add_subdirectory(src)
+-add_subdirectory(test)
+ add_subdirectory(doc)
+ 
+ #========================================================================

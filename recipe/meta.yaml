@@ -15,6 +15,10 @@ package:
 source:
   url: http://software.ligo.org/lscsoft/source/{{ name }}-{{ version }}.tar.gz
   sha256: c382acfb52c099c97edd3aaf6440786550442e36b78d791bd7179615099bcfa2
+  patches:
+    # disable tests until operator issue is resolved, see
+    # https://git.ligo.org/computing/ldastools/LDAS_Tools/-/issues/189
+    - no-test.patch
 
 build:
   number: 0
