@@ -1,5 +1,5 @@
 {% set name = "ldas-tools-frameAPI" %}
-{% set version = "2.6.7" %}
+{% set version = "3.0.3" %}
 
 # upstream dependency versions
 {% set ldas_tools_cmake_version = "1.2.3" %}
@@ -14,7 +14,7 @@ package:
 
 source:
   url: http://software.ligo.org/lscsoft/source/{{ name }}-{{ version }}.tar.gz
-  sha256: 53dd46019f44459dc5cd05cbde80b6f33e5989f7790f31609acc3bd377d35c5c
+  sha256: b1ead237903a3a46632328bee59891e9f0d98ceccae169889f42bf009882729b
 
 build:
   number: 0
