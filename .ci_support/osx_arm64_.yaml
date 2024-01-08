@@ -14,6 +14,8 @@ cxx_compiler_version:
 - '16'
 ldas_tools_framecpp:
 - '2.9'
+libboost_devel:
+- '1.82'
 macos_machine:
 - arm64-apple-darwin20.0.0
 target_platform:
