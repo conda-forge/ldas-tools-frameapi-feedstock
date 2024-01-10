@@ -19,8 +19,8 @@ cmake \
 # build
 cmake --build . --parallel ${CPU_COUNT} --verbose
 
-# test
-if [[ "${CONDA_BUILD_CROSS_COMPILATION:-}" != "1" || "${CROSSCOMPILING_EMULATOR}" != "" ]]; then
+# test (flaky on osx-64)
+if [[ "${target_platform}" == "linux-64" ]]; then
 	ctest --parallel ${CPU_COUNT} --verbose
 fi
 

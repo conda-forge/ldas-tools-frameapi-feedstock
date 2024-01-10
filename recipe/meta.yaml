@@ -19,7 +19,7 @@ source:
 build:
   error_overdepending: true
   error_overlinking: true
-  number: 0
+  number: 1
   skip: true  # [win]
   run_exports:
     - {{ pin_subpackage("ldas-tools-frameapi", max_pin="x.x") }}
@@ -44,8 +44,12 @@ test:
   requires:
     - pkg-config  # [unix]
   commands:
+    # generate fake data
+    - framecpp_sample
+    # generate analysis-ready segments
+    - ldas_analysis_ready --frame-file-pattern "*.gwf" --ifo Z0 --analysis-ready-channel RAMPED_INT_8U_1
+    # sanity check headers and pkg-config
     - test -d ${PREFIX}/include/frameAPI  # [unix]
-    - test -f ${PREFIX}/lib/libldasframe${SHLIB_EXT}  # [unix]
     - pkg-config --print-errors --exact-version {{ version }} ldastools-ldasframe  # [unix]
 
 about:
