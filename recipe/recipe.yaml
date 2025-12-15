@@ -19,6 +19,9 @@ source:
 
 build:
   dynamic_linking:
+    missing_dso_allowlist:
+      - if: osx
+        then: /usr/lib/libSystem.B.dylib
     overdepending_behavior: error
     overlinking_behavior: error
   number: 0
