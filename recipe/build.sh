@@ -1,7 +1,6 @@
 #!/bin/bash
 
 set -e
-export CPU_COUNT=1
 
 mkdir -p _build
 pushd _build
