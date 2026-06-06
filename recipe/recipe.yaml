@@ -2,12 +2,12 @@ schema_version: 1
 
 context:
   name: ldas-tools-frameAPI
-  version: 3.0.5
-  ldas_tools_cmake_version: 1.3.0
-  ldas_tools_al_version: 2.7.0
-  ldas_tools_framecpp_version: 3.0.5
-  ldas_tools_filters_version: 2.6.6
-  ldas_tools_ldasgen_version: 2.7.4
+  version: "3.0.7"
+  ldas_tools_cmake_version: 1.4.1
+  ldas_tools_al_version: 2.8.0
+  ldas_tools_framecpp_version: 4.0.1
+  ldas_tools_filters_version: 2.6.8
+  ldas_tools_ldasgen_version: 2.7.5
 
 package:
   name: ${{ name|lower }}
@@ -15,7 +15,7 @@ package:
 
 source:
   url: http://software.ligo.org/lscsoft/source/${{ name }}-${{ version }}.tar.gz
-  sha256: e56a4714b980ab117cebb3b99f25fd9a3c90672ca5ab971cdd77ac157c56ddc7
+  sha256: 7fd03aa25103729877cf8df0c547fc6b516a538a2b24eac6d3761e800b9cae7f
 
 build:
   dynamic_linking:
@@ -54,7 +54,11 @@ tests:
           then:
             - pkg-config
     script:
-      - framecpp_sample
+      # framecpp 4.x: --channel-adc-type triggers all_type_frame() which
+      # emits Z0:RAMPED_<TYPE>_1 channels (vs the default test_frame() path
+      # which emits TesT_<method>_<level>_... names).
+      # See https://git.ligo.org/computing/ldastools/LDAS_Tools/-/issues/283
+      - framecpp_sample --channel-adc-type int_8u
       - "ldas_analysis_ready --frame-file-pattern \"*.gwf\" --ifo Z0 --analysis-ready-channel RAMPED_INT_8U_1"
       - if: unix
         then:
