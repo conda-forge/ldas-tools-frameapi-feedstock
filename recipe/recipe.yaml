@@ -24,7 +24,7 @@ build:
         then: /usr/lib/libSystem.B.dylib
     overdepending_behavior: error
     overlinking_behavior: error
-  number: 0
+  number: 1
   skip: win
 
 requirements:
