@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: ldas-tools-frameAPI
-  version: "3.0.8"
+  version: "3.0.9"
   ldas_tools_cmake_version: 1.5.0
   ldas_tools_al_version: 2.10.0
   ldas_tools_framecpp_version: 4.1.0
@@ -15,12 +15,12 @@ package:
 
 source:
   url: https://software.ligo.org/sources/source/${{ name }}-${{ version }}.tar.gz
-  sha256: c0835eabb9c3b4b4893471248d24724c3180306facd37d91a24064e297e0d3d2
+  sha256: 76620bed457f7792bcd8eae0b95e9411c5f723d2880ebe917ef029202d40eecc
 
 build:
   dynamic_linking:
     overdepending_behavior: error
-  number: 1
+  number: 0
   skip: win
 
 requirements:
